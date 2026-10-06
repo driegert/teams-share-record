@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Share/Record Nag",
+  "version": "0.1.0",
+  "description": "Nags you during a Teams meeting when recording is on but screen sharing is off, or vice versa.",
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "permissions": ["notifications", "storage", "tabs"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "Share/Record Nag" },
+  "content_scripts": [
+    {
+      "matches": ["https://teams.microsoft.com/*", "https://teams.cloud.microsoft/*"],
+      "js": ["share-hook.js"],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": ["https://teams.microsoft.com/*", "https://teams.cloud.microsoft/*"],
+      "js": ["detector.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ]
+}

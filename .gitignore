@@ -1,0 +1,20 @@
+# Packed extension builds and the private signing key Edge/Chrome generate
+# when you "Pack extension". Never commit the .pem.
+*.crx
+*.pem
+*.zip
+
+# Dumps from the popup's "Dump labels" may contain meeting names/participants
+dumps/
+*.dump.json
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# In case tooling gets added later
+node_modules/

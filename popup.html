@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font: 13px/1.4 system-ui, sans-serif; width: 340px; margin: 12px; color: #1f2328; background: #fff; }
+  h1 { font-size: 15px; margin: 0 0 8px; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 8px; }
+  td { padding: 2px 0; }
+  td:last-child { text-align: right; font-weight: 600; }
+  .yes { color: #1a7f37; } .no { color: #8c959f; } .alert { color: #d10000; }
+  fieldset { border: 1px solid #d0d7de; border-radius: 6px; margin: 8px 0; }
+  label { display: flex; justify-content: space-between; align-items: center; margin: 4px 0; }
+  input[type=number] { width: 60px; }
+  .row { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0; }
+  textarea { width: 100%; height: 140px; font: 11px monospace; box-sizing: border-box; display: none; }
+  .muted { color: #57606a; font-size: 12px; }
+</style>
+</head>
+<body>
+  <h1>Share/Record Nag</h1>
+  <div id="status" class="muted">Open a Teams tab to see its status.</div>
+  <div class="row">
+    <button id="snooze">Snooze 15 min</button>
+    <button id="unsnooze">Unsnooze</button>
+    <button id="dump">Dump labels</button>
+    <button id="copy" hidden>Copy dump</button>
+  </div>
+  <textarea id="out" readonly></textarea>
+  <fieldset>
+    <legend>Settings</legend>
+    <label>Enabled <input type="checkbox" id="enabled"></label>
+    <label>Grace period before nagging (s) <input type="number" id="graceSec" min="0"></label>
+    <label>Repeat desktop notification every (s) <input type="number" id="notifyEverySec" min="5"></label>
+  </fieldset>
+  <script src="popup.js"></script>
+</body>
+</html>
